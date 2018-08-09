@@ -5,7 +5,9 @@ The repository doesn't contain dataset, please prepare and set up it in config.p
 
 To train a new model:
 
+```console
 python train.py --save_model_name [name of model to be saved]
+```
 
 To load a model and resume training:
 
