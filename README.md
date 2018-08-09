@@ -21,4 +21,3 @@ To test a trained model
 python test.py --model_name [name of model to read]
 ```
 
-Currently the model (defined in train.py) is a toy version of the model proposed in the paper, with much fewer parameters so that it can be tested on a laptop. Will scale up and move it to the cloud in the future
