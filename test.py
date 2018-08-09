@@ -4,20 +4,11 @@ from keras.layers import Activation,Input
 from custom_layers import MaxPoolingWithIndices,UpSamplingWithIndices,CompositeConv
 import config as cf
 from util import read_image_batch
+from create_model import create_model
 
 def main(args):
-    inputs=Input(shape=cf.image_shape)
-    x=CompositeConv(inputs,2,4)
-    x,argmax1=MaxPoolingWithIndices(pool_size=2,strides=2)(x)
-    x=CompositeConv(x,2,4)
-    x,argmax2=MaxPoolingWithIndices(pool_size=2,strides=2)(x)
-    x=UpSamplingWithIndices()([x,argmax2])
-    x=CompositeConv(x,2,4)
-    x=UpSamplingWithIndices()([x,argmax1])
-    x=CompositeConv(x,2,[4,cf.num_classes])
-    y=Activation('softmax')(x)
-    
-    my_model=Model(inputs=inputs,outputs=y)
+   
+    my_model=create_model()
     my_model.compile(cf.optimizer,loss=cf.loss_function,metrics=cf.metrics)
     my_model.load_weights(cf.model_path+args.model_name)
     test_data=read_image_batch(cf.test_set_path,10)
