@@ -56,12 +56,12 @@ def CompositeConv(inputs,num_layers,num_features):
     output=inputs
     if isinstance(num_features,int):
         for i in range(num_layers):
-            output=Conv2D(num_features,(3,3),padding='same')(output)
+            output=Conv2D(num_features,(7,7),padding='same')(output)
             output=BatchNormalization(axis=3)(output)
             output=Activation('relu')(output)
         return output
     for i in range(num_layers):
-        output=Conv2D(num_features[i],(3,3),padding='same')(output)
+        output=Conv2D(num_features[i],(7,7),padding='same')(output)
         output=BatchNormalization(axis=3)(output)
         output=Activation('relu')(output)
     return output
