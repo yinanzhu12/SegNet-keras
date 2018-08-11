@@ -6,18 +6,18 @@ The repository doesn't contain dataset, please prepare and set up it in config.p
 To train a new model:
 
 ```console
-python train.py --save_model_name [name of model to be saved]
+python train.py --save [name of model to be saved]
 ```
 
 To load a model and resume training:
 
 ```console
-python train.py --save_model_name [name of model to be saved] --resume --load_model_name [name of model to be loaded]
+python train.py --save [name of model to be saved] --resume --load [name of model to be loaded]
 ```
 
 To test a trained model
 
 ```console
-python test.py --model_name [name of model to read]
+python test.py --save [name of model to read]
 ```
 
