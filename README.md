@@ -18,6 +18,6 @@ python train.py --save [name of model to be saved] --resume --load [name of mode
 To test a trained model
 
 ```console
-python test.py --save [name of model to read]
+python test.py --load [name of model to read]
 ```
 
