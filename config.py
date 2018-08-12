@@ -3,7 +3,7 @@ val_set_path='SegNet/CamVid/val.txt'
 test_set_path='SegNet/CamVid/test.txt'
 model_path='models/'
 
-num_classes=13
+num_classes=12
 image_shape=(360,480,3)
 padding=((12,12),(16,16))
 batch_size=5
