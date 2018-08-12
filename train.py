@@ -12,7 +12,7 @@ def main(args):
     my_model.compile(cf.optimizer,loss=cf.loss_function,metrics=cf.metrics)
     
     if args.resume:
-        my_model.load_weights(cf.model_path+args.load_model_name)
+        my_model.load_weights(cf.model_path+args.load)
     
     val_data=read_image_batch(cf.val_set_path,cf.batch_size)
     train_data=read_image_batch(cf.training_set_path,cf.batch_size)
@@ -20,7 +20,7 @@ def main(args):
                            steps_per_epoch=(cf.training_set_size+1)//cf.batch_size,
                            epochs=cf.epochs,validation_data=val_data,
                            validation_steps=(cf.val_set_size+1)//cf.batch_size)
-    my_model.save_weights(cf.model_path+args.save_model_name)
+    my_model.save_weights(cf.model_path+args.save)
     
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
